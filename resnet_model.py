@@ -4,13 +4,14 @@ import torchvision.models
 import os
 import sys
 import torch
-# import ssl
+
 
 import torch.nn as nn
 from torch.nn import functional as F
 from scipy.io import loadmat
 
 # ssl._create_default_https_context = ssl._create_unverified_context
+# Adapted from Github code: https://github.com/facebookresearch/DomainBed
 
 class Identity(nn.Module):
     """An identity layer"""

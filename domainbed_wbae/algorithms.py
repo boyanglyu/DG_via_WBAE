@@ -1,4 +1,4 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
+# Adapt from DomainBed code
 
 import torch
 import torch.nn as nn

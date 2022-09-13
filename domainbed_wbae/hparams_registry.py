@@ -30,9 +30,7 @@ def _hparams(algorithm, dataset, random_seed):
     _hparam('data_augmentation', True, lambda r: True)
     _hparam('resnet18', False, lambda r: False)
     _hparam('resnet_dropout', 0., lambda r: 0.) #   fixed the dropout
-    # _hparam('resnet_dropout', 0., lambda r: r.choice([0., 0.1, 0.5]))
     _hparam('class_balanced', False, lambda r: False)
-    # TODO: nonlinear classifiers disabled
     _hparam('nonlinear_classifier', False,
             lambda r: bool(r.choice([False, False])))
 
@@ -49,22 +47,21 @@ def _hparams(algorithm, dataset, random_seed):
     # below corresponds to exactly one hparam. Avoid nested conditionals.
 
     if dataset in SMALL_IMAGES:
-        _hparam('lr', 1e-3, lambda r: 1e-3) #   fixed the learning rate 
+        _hparam('lr', 1e-3, lambda r: 1e-3) 
     else:
-         _hparam('lr', 5e-5, lambda r: 5e-5) #   fixed the learning rate 
+         _hparam('lr', 5e-5, lambda r: 5e-5) 
 
     if dataset in SMALL_IMAGES:
-        _hparam('weight_decay', 0., lambda r: 0.)#   fixed the learning rate 
+        _hparam('weight_decay', 0., lambda r: 0.)
     else:
-        _hparam('weight_decay', 0., lambda r: 0.) #   fixed the weight decay
+        _hparam('weight_decay', 0., lambda r: 0.) 
 
     if dataset in SMALL_IMAGES:
-        # _hparam('batch_size', 64, lambda r: int(2**r.uniform(3, 9)))
-        _hparam('batch_size', 64, lambda r: 64) #   fixed the batch size
+        _hparam('batch_size', 64, lambda r: 64) 
     elif dataset == 'DomainNet':
         _hparam('batch_size', 32, lambda r: int(2**r.uniform(3, 5)))
     else:
-        _hparam('batch_size', 32, lambda r: 32) #   fixed the batch size
+        _hparam('batch_size', 32, lambda r: 32) 
         
     return hparams
 

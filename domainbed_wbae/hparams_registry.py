@@ -39,11 +39,10 @@ def _hparams(algorithm, dataset, random_seed):
     # Algorithm-specific hparam definitions. Each block of code below
     # corresponds to exactly one algorithm.
 
-    ####   added ####################################################
+   
     if algorithm == "WBAE":
-        
-        _hparam('wbae_alpha', 1e-3, lambda r: 10**r.uniform(-3.5, -2)) #0729
-        _hparam('wbae_beta', 1e-2, lambda r: 10**r.uniform(-3.5, -1.5)) #0729
+        _hparam('wbae_alpha', 1e-3, lambda r: 10**r.uniform(-3.5, -2))
+        _hparam('wbae_beta', 1e-2, lambda r: 10**r.uniform(-3.5, -1.5)) 
         _hparam('wbae_blur', 20., lambda r: 20.) #0729
 
     # Dataset-and-algorithm-specific hparam definitions. Each block of code
@@ -65,7 +64,7 @@ def _hparams(algorithm, dataset, random_seed):
     elif dataset == 'DomainNet':
         _hparam('batch_size', 32, lambda r: int(2**r.uniform(3, 5)))
     else:
-        _hparam('batch_size', 32, lambda r: 32) #   fixed the batch size, on  0731, change it to 64
+        _hparam('batch_size', 32, lambda r: 32) #   fixed the batch size
         
     return hparams
 

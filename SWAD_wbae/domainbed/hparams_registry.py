@@ -11,9 +11,7 @@ def _hparams(algorithm, dataset, random_state):
     SMALL_IMAGES = ["Debug28", "RotatedMNIST", "ColoredMNIST"]
 
     hparams = {}
-    # (0, 5e-5, 1e-6), (0.1, 5e-5, 1e-6), (0.5, 5e-5, 1e-6), (0, 5e-5, 1e-4), (0.1, 5e-5, 1e-4), (0.5, 5e-5, 1e-4)
-    # (0, 3e-5, 1e-6), (0.1, 3e-5, 1e-6), (0.5, 3e-5, 1e-6), (0, 3e-5, 1e-4), (0.1, 3e-5, 1e-4), (0.5, 3e-5, 1e-4)
-    # (0, 1e-5, 1e-6), (0.1, 1e-5, 1e-6), (0.5, 1e-5, 1e-6), (0, 1e-5, 1e-4), (0.1, 1e-5, 1e-4), (0.5, 1e-5, 1e-4)
+   
     hparams["data_augmentation"] = (True, True)
     hparams["val_augment"] = (False, False)  # augmentation for in-domain validation set
     hparams["resnet18"] = (False, False)

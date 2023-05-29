@@ -234,11 +234,7 @@ class Decoder_MNIST(nn.Module):
 class Decoder_Resnet(nn.Module):
     def __init__(self):
         super(Decoder_Resnet, self).__init__()
-        # self.fc1 = nn.Linear(200, 512)
-        # self.fc_bn1 = nn.BatchNorm1d(512)
-        # self.fc2 = nn.Linear(512, 2048)
-        # self.fc_bn2 = nn.BatchNorm1d(2048)
-        # self.relu = nn.ReLU(inplace=True)
+
         # Decoder
         self.main = nn.Sequential(
             # first layer
@@ -267,8 +263,7 @@ class Decoder_Resnet(nn.Module):
         )
         
     def forward(self, x):
-        # x = self.relu(self.fc_bn1(self.fc1(x)))
-        # x = self.relu(self.fc_bn2(self.fc2(x)))
+
         # Decoder
         out = x.view(-1, 2048, 1, 1)
         out = self.main(out)

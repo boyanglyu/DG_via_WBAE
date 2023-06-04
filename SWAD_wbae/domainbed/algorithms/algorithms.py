@@ -127,7 +127,7 @@ class WBAE(Algorithm):
                 
                 measures_locations.append(x_i)
                 measures_weights.append(b_i)
-            # print(measures_locations, measures_weights)
+            
             # weights of the barycenter
             b = np.ones((num_dirac,)) / num_dirac
             # number of Diracs of the barycenter

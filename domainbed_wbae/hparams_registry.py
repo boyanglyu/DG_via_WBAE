@@ -41,7 +41,6 @@ def _hparams(algorithm, dataset, random_seed):
     if algorithm == "WBAE":
         _hparam('wbae_alpha', 1e-3, lambda r: 10**r.uniform(-3.5, -2))
         _hparam('wbae_beta', 1e-2, lambda r: 10**r.uniform(-3.5, -1.5)) 
-        _hparam('wbae_blur', 20., lambda r: 20.) #0729
 
     # Dataset-and-algorithm-specific hparam definitions. Each block of code
     # below corresponds to exactly one hparam. Avoid nested conditionals.

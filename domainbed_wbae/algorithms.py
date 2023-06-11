@@ -19,10 +19,10 @@ from domainbed import networks
 from domainbed.lib.misc import (
     random_pairs_of_minibatches, ParamDict, MovingAverage, l2_between_dicts
 )
-############### BY added packaged ##################
+
 from geomloss import SamplesLoss
 import ot
-############### BY added packaged ##################
+
 
 
 ALGORITHMS = [

@@ -7,4 +7,4 @@ The original SWAD code can be found here: https://github.com/khanrc/swad
 
 Our WBAE algorithm is in algorithms.py file. 
 
-Scripted for distributed training are added to the project with the name *_ddp.py
+Scripts for distributed training are added to the project with the name *_ddp.py

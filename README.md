@@ -6,3 +6,5 @@ We use the SWAD package to conduct our experiments in SWAD setting.
 The original SWAD code can be found here: https://github.com/khanrc/swad
 
 Our WBAE algorithm is in algorithms.py file. 
+
+Scripted for distributed training are added to the project with the name *_ddp.py

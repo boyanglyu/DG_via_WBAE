@@ -143,7 +143,7 @@ class WBAE(Algorithm):
             X = ot.lp.free_support_barycenter(measures_locations, measures_weights, X_init, b)
             return X
     '''
-    letent_code: list, lenth is number of training domian
+    latent_code: list, lenth is number of training domian
     '''
     @staticmethod
     def wass_loss(latent_code, blur, num_dirac, device):

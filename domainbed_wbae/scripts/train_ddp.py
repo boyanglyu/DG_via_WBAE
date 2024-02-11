@@ -181,7 +181,7 @@ def main(rank, world_size):
         algorithm.load_state_dict(algorithm_dict)
 
     checkpoint_vals = collections.defaultdict(lambda: [])
-
+    # This will be used for setting the epoch.
     steps_per_epoch = min([len(env)/hparams['batch_size'] for env in in_splits])
 
     n_steps = args.steps or dataset.N_STEPS
@@ -191,7 +191,7 @@ def main(rank, world_size):
         if steps % int(steps_per_epoch) == 0:
             print(f'set epoch at step {steps}')
             for loader in train_loaders:
-                # Assuming each loader's dataset uses a DistributedSampler
+                # Each loader's dataset uses a DistributedSampler
                 loader.set_epoch(steps // int(steps_per_epoch))
         return zip(*train_loaders)
     
@@ -214,6 +214,7 @@ def main(rank, world_size):
                 'step': step,
                 'epoch': step / steps_per_epoch,
             }
+            # Helper function for checking if parameters are synchronized correctly
             def log_model_parameter_sum(algorithm):
                 total_param_sum = sum(p.data.sum().item() for p in algorithm.show())
                 print(f"Running DDP example on rank {rank} / Sum of classifier parameters: {total_param_sum} ")
@@ -248,7 +249,7 @@ def main(rank, world_size):
             algorithm_dict = algorithm.state_dict()
             start_step = step + 1
             checkpoint_vals = collections.defaultdict(lambda: [])
-
+            # #Uncomment it if you want to save checkpoint
             # save_checkpoint(args, hparams, rank, f'model_step{step}.pkl', dataset, algorithm)
             # map_location = {'cuda:%d' % 0: 'cuda:%d' % rank}
             # algorithm.load_state_dict(
